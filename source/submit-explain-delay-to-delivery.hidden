@@ -1,0 +1,12 @@
+---
+title: Submit explanation of delay to delivery
+weight: 30
+---
+
+# Submit explanation of delay to delivery
+
+Use the POST endpoint [/customs/excise/{ERN}/messages]() with the message type "ExplainDelayToDelivery" to send an explanation of a delivery delay to the customs office. This request is also called an ‘Explanation on Delay for Delivery’ (IE837) message. 
+
+A successful response will contain a URI, which you can use to get the message status. A successful response can also include an optional box ID, which you can use to match this movement to any messages received from the Push Pull Notifications API.
+
+To submit an explanation of a delivery delay, you must have an EORI number.
