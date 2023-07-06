@@ -1,7 +1,7 @@
 import uk.gov.hmrc.sbtdistributables.SbtDistributablesPlugin.publishingSettings
 import sbt.Keys._
 
-val appName = "service-guide-skeleton"
+val appName = "emcs-api-service-guide"
 
 scalaVersion := "2.13.8"
 
