@@ -1,10 +1,43 @@
 ---
-title: Submit draft movement
-weight: 20
+title: Submit new draft movement
+weight: 30
 ---
 
-# Submit draft movement
+# Submit a new draft excise movement
 
-Information about the endpoint will appear here, for example:
+Use the POST endpoint [Submit a new draft excise movement]() to create a new excise movement. 
 
-Use the POST endpoint [for messages relating to the ERN]() with the messageType "Draft" and the messageBody "IE815" to submit a draft movement to the customs office. This request is also called a ‘Submitted Draft of E-AD/E-SAD’ (IE815) message. 
+This request is also called a ‘submit draft movement’ (IE815) message. 
+
+## Successful response
+
+If you use this endpoint to send a small message (up to 10MB), a successful response will contain:
+
+- a movement ID
+- a consignor ID
+- a local reference number (LRN)
+- a status
+
+It may also contain an administrative reference code (ARC).
+
+### Statuses
+
+The possible statuses contained in a successful response include:
+
+- Accepted
+- Cancelled
+- Delivered
+- Diverted
+- Rejected
+- Replaced
+- e-AD / e-SAD Manually Closed
+- Refused
+- None
+- Partially Refused
+- Exporting
+- Accepted for Export
+- Stopped
+
+## Note
+
+The consignor ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.

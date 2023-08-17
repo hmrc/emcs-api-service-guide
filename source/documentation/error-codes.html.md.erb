@@ -1,0 +1,23 @@
+---
+title: Error codes
+weight: 90
+---
+
+# Error codes
+
+Download a list of [error codes for EMCS API]() (.xls format, 72KB).
+
+## Functional error codes
+
+| Code        | Description | Remarks     |
+| ----------- | ----------- | ----------- |
+| 0           | Other                              | This value should be used only when the error does not correspond to any of the following values. It must be stressed that the value of zero should only be used for intra-release migration issues.|
+| 12          | Incorrect (code) value             | Value of an element in a message is outside the applicable business codelist.|
+| 15          | Not supported in this position     | The element or value is not allowed according to the applicable Rule(s) or Condition(s).            |
+| 26          | Duplicate detected                 | The same interchange is received again. Duplication is detected by reception of an interchange reference that has already been received.            |
+| 90          | Unknown ARC                        | The ARC of the received message is not known, whereas it is expected to be known.            |
+| 91          | Duplicate LRN                      | The LRN of the received message is already known and is therefore not unique according to the specified rules.            |
+| 92          | Message out of sequence            | The message cannot be processed, because the receiver is not in a proper state.            |
+| 93          | Invalid ARC                        | The structure of the ARC does not conform to the specifications given in Rule R030. ~
+| 94          | Invalid Follow Up Correlation ID/ MV Correlation ID   | The structure of the Follow Up Correlation ID or MV Correlation ID does not conform to the specifications given in Rule R083.            |
+| 95          | Unknown Follow Up Correlation ID / MV Correlation ID  | The Follow Up Correlation ID or MV Correlation ID of the received message is not known, whereas it is expected to be known.             |

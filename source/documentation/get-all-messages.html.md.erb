@@ -1,0 +1,27 @@
+---
+title: Get all messages for an excise movement
+weight: 60
+---
+
+# Get all messages for an excise movement
+
+Use the GET endpoint [Get all messages for an excise movement using the movement ID]() to get all messages for a specific excise movement.
+
+## Filters
+
+You can filter messages on:
+
+- date range
+- message type
+
+## Successful response
+
+A successful response will contain:
+
+- the message ID
+- the message body
+- the message type
+
+## Note
+
+The consignor ID or consignee ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
