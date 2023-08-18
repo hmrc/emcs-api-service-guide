@@ -23,3 +23,15 @@ yarn-error.log
 /.bsp
 .DS_Store
 **/*.DS_Store
+
+# Ignore bundler config
+/.bundle
+
+# Ignore the build directory
+/build
+
+# Ignore cache
+/.sass-cache
+/.cache
+
+Staticfile.auth
