@@ -1,0 +1,32 @@
+---
+title: Submit a message for an excise movement
+weight: 50
+---
+
+# Submit a message for an excise movement
+
+This is draft information for the prototype and is likely to change.
+
+Use the POST endpoint [Submit a message for an excise movement]() to submit an update on an existing excise movement.
+
+## Messages
+
+You can submit the following message types to this endpoint:
+
+- Cancellation (IE810)
+- Change of destination (IE813)
+- Report of receipt (IE818)
+- Alert or rejection of E-AD/E-SAD (IE819)
+- Split movement (IE825)
+- Explain delay to delivery (IE837)
+- Reason for shortage (IE871)
+
+## Successful response
+
+If you have successfully submit the message, you will receive a 200 Successful operation response.
+
+## Note
+
+The X-Message-Type header **must** be the same as in the message body. 
+
+The consignor ID or consignee ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
