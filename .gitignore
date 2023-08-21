@@ -23,6 +23,7 @@ yarn-error.log
 /.bsp
 .DS_Store
 **/*.DS_Store
+source/.DS_Store
 
 # Ignore bundler config
 /.bundle
