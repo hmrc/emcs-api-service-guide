@@ -4,6 +4,7 @@ service_name: Excise Movement Control System API
 # The route that will be used to access this site (with tailing slash)
 service_link: /guides/emcs-api-service-guide/
 
+
 # ================================================
 # You shouldn't need to edit anything below here
 # ================================================
@@ -13,6 +14,8 @@ host: developer.service.hmrc.gov.uk
 
 # Header-related options
 show_govuk_logo: true
+service_name: EMCS API
+phase: Alpha
 
 # Links to show on right-hand-side of header
 header_links:
@@ -44,6 +47,9 @@ collapsible_nav: true
 max_toc_heading_level: 2
 
 # Prevent robots from indexing (e.g. whilst in development)
-prevent_indexing: false
+prevent_indexing: true
 
 show_contribution_banner: false
+
+# Convert OpenAPI file to API reference page
+api_path: source/documentation/application.yaml
