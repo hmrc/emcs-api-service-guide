@@ -14,7 +14,6 @@ host: developer.service.hmrc.gov.uk
 
 # Header-related options
 show_govuk_logo: true
-service_name: EMCS API
 phase: Alpha
 
 # Links to show on right-hand-side of header
