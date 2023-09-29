@@ -7,45 +7,23 @@ weight: 40
 
 This is prototype information and is likely to change.
 
+This endpoint allows you to retrieve information about all movements for an excise reference number (ERN), or for all ERNs in your bearer token.
+
 Use the GET endpoint [Get excise movements](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getAllMovements) to retrieve the status of an existing excise movement.
 
-## Filters
+## Query parameters
 
-You can filter excise movements on:
+| Parameter | Type | Details |
+| -- | -- | -- |
+| ERN | String | Filter excise movements by excise reference number (consignor ID/consignee ID). If you do not provide an excise reference number (ERN) as a query parameter, you will get a list for all ERNs in your bearer token. |
+| ARC | String |Filter excise movements by administrative reference code (ARC)|
+| LRN | String | Filter excise movements by local reference number (LRN)|
 
-- excise reference number (consignor ID / consignee ID). If you do not provide an excise reference number (ERN) as a query parameter, you will get a list for all ERNs in your bearer token.
-- administrative reference code (ARC)
-- local reference number (LRN)
+## Responses 
 
-## Successful response
+Full details of successful and unsuccessful responses and their schema can be found in the [API reference](api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getAllMovements) on the HMRC Developer Hub.
 
-A successful response will contain:
-
-- a movement ID
-- a consignor ID
-- a local reference number (LRN)
-- a status
-
-It may also contain an administrative reference code (ARC).
-
-### Statuses
-
-The possible statuses contained in a successful response include:
-
-- Accepted
-- Cancelled
-- Delivered
-- Diverted
-- Rejected
-- Replaced
-- e-AD / e-SAD Manually Closed
-- Refused
-- None
-- Partially Refused
-- Exporting
-- Accepted for Export
-- Stopped
-
-## Note
-
-The consignor ID or consignee ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
+| Response code | Status | Details | Contents | 
+| -- | -- | -- | -- |
+| 200 | Successful | Accepted | Consignor ID, local reference number, consignee ID, administrative reference code, status|
+| 404 | Unsuccessful | No excise movements found for ERN | N/A |
