@@ -7,22 +7,32 @@ weight: 20
 
 This is draft information for the prototype and is likely to change.
 
+If you have previously used the EMCS SOAP API, you may find the following information useful.
+
+## Differences
+
+The endpoints accept data in XML format, and now return data in XML wrapped in JSON.
+
+The structure of the old XML remains the same, but is now accepted in a RESTful API. Request schema can be found [on GitHub](https://github.com/hmrc/excise-movement-control-system-api/tree/main/app/xsd).
+
+There is no longer an individual endpoint for every message you need to send. Many different messages can now be sent to a single endpoint, ['Submit a message for an excise movement'](Submit a message for an excise movement)
+
 ## Equivalent SOAP API endpoints
 
-If you have previously used the EMCS SOAP API, you'll notice some changes to the API endpoints in the new RESTful API. You can find the new endpoints and their previous SOAP API equivalents below.
+There some changes to the API endpoints in the new RESTful API. You can find the new endpoints and their previous SOAP API equivalents below.
 
 ### Movements
 
 | RESTful API                            | SOAP API equivalents                | Comments             |
 | -----------                            | -----------                         | -----------          |
-| POST /customs/excise/movements         | SubmitDraftMovement                 |                      |
-| GET  /customs/excise/movements         | GetMovementForTrader                |                      |
-| POST /customs/excise/movements/{movementId}/messages  | SubmitReportofReceipt <br> SubmitExplainDelayToDelivery <br> SubmitCancellation <br> SubmitChangeOfDestination <br> SubmitAlertOrRejectionMovement <br> SubmitSplitMovement <br> SubmitReasonForShortage                     |                         |                      |
-| GET /customs/excise/movements/{movementId}/messages   | GetNewMessages       |                      |                      |
+| [POST /customs/excise/movements](https://developer.qa.tax.service.gov.uk/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/submitMovement)         | SubmitDraftMovement                 |                      |
+| [GET  /customs/excise/movements](https://developer.qa.tax.service.gov.uk/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/submitMovement)         | GetMovementForTrader                |                      |
+| [POST /customs/excise/movements/{movementId}/messages](https://developer.qa.tax.service.gov.uk/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/submitMovement)  | SubmitReportofReceipt <br> SubmitExplainDelayToDelivery <br> SubmitCancellation <br> SubmitChangeOfDestination <br> SubmitAlertOrRejectionMovement <br> SubmitSplitMovement <br> SubmitReasonForShortage                     |                         |                      |
+| [GET /customs/excise/movements/{movementId}/messages](https://developer.qa.tax.service.gov.uk/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/submitMovement)   | GetNewMessages       |                      |                      |
 
 
 ###Traders
 
 | RESTful API                            | SOAP API equivalents                | Comments             |
 | -----------                            | -----------                         | -----------          |
-| GET /customs/excise/traders            | PreValidateTrader                   |                      |
+| [GET /customs/excise/traders](https://developer.qa.tax.service.gov.uk/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Traders/operation/prevalidateTrader)            | PreValidateTrader                   |                      |

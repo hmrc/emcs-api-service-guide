@@ -1,9 +1,9 @@
 ---
-title: EMCS API service guide (alpha prototype)
+title: EMCS API service guide (beta prototype)
 weight: 10
 ---
 
-# EMCS API service guide (alpha prototype)
+# EMCS API service guide (beta prototype)
 
 This is a prototype service guide used for research. The API it describes is still in development.
 
@@ -11,7 +11,11 @@ Some content may be incomplete, or links may not work.
 
 ## API overview
 
-The EMCS API is based on REST principles with endpoints that return data in JSON format. It uses standard HTTP error response codes.
+The EMCS API is based on REST principles. 
+
+The endpoints accept data in XML format, and return data in XML wrapped in JSON.
+
+The API uses standard HTTP error response codes.
 
 Use the EMCS API to: 
 
@@ -20,16 +24,42 @@ Use the EMCS API to:
 
 ## API status
 
-This version of the EMCS API is in [the alpha phase](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works).
+This version of the EMCS API is in [the beta phase](https://www.gov.uk/service-manual/agile-delivery/how-the-beta-phase-works).
 
 ## Getting started
 
-1. Using EMCS API for the first time
-2. Migrating from an earlier version
+### Using EMCS API for the first time
+
+If you are new to the EMCS API, you should:
+
+1. Review all of this document before reviewing other documents for EMCS API
+2. Follow all of the steps in [First-time EMCS API users](/#first-time-emcs-api-users).
+3. Review the [testing guide]()
+4. Review the [technical interface specification]()
+5. Review [Making API requests](/#making-api-requests)
+
+### Migrating from an earlier version
+
+If you are migrating from the old SOAP EMCS API, you should:
+
+1. Review the [migrating from SOAP API page](/documentation/migration-guide.html) before reviewing other documents for EMCS API
+2. Review the [testing guide]()
+3. Review the [technical interface specification]()
+4. Review [Making API requests](/#making-api-requests)
 
 ### Trader data
 
 - Information you'll need from traders if you work for a software house.
+
+### First-time EMCS API Users
+
+If you have not previously used the EMCS API, you should:
+
+1. Ensure that you have an HMRC developer account - if you do not have one, you must register for an account, activate it by email, and sign in.
+2. Add your subscription to this API to your application software.
+3. Learn about the user-restricted authentication used by the API.
+4. Create an application in our sandbox environment.
+5. Use the Create Test User API to create one or more test users for your sandbox application.
 
 ### Before you start
 
@@ -37,7 +67,10 @@ This version of the EMCS API is in [the alpha phase](https://www.gov.uk/service-
 
 ### Making API requests
 
-- What you need to use in your software before sending requests to EMCS API.
+Before sending any requests to EMCS API, you should ensure that you are using in your software:
+
+- the correct URL for the environment and API version number
+- the correct header contents and payload information - see [EMCS API reference](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page)
 
 ## Applying for production credentials
 
