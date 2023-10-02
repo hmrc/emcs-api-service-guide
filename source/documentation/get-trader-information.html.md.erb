@@ -9,13 +9,15 @@ This is prototype information and is likely to change.
 
 Use the GET endpoint [Get information relating to an excise trader](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Traders/operation/prevalidateTrader) to get information about an exise trader.
 
-## Parameters
+## Query parameters
 
-The query must contain:
+The query must contain the following parameters:
 
-- the trader ID
-- the trader type
-- the excise product code
+| Parameter | Type | Details |
+| -- | -- | -- |
+| Trader ID | String | The excise reference number of the trader |
+| Trader type | String | The type of excise trader |
+| Excise product code | Array of stringa | The excise products catergory code |
 
 ### Trader types
 
@@ -26,9 +28,11 @@ The following trader types exist:
 - EU Warehouse
 - EU Temp authorisation
 
-## Successful response
+## Responses 
 
-A successful response will contain:
+Full details of successful and unsuccessful responses and their schema can be found in the [API reference](api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getAllMovements) on the HMRC Developer Hub.
 
-- the trader's excise ID
-- whether the trader is currently valid
+| Response code | Status | Details | Contents | 
+| -- | -- | -- | -- |
+| 200 | Successful | Successful operation | Excise ID, valid trader |
+| 404 | Unsuccessful | Unknown trader | N/A |

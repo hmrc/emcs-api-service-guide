@@ -11,6 +11,10 @@ This endpoint allows you to retrieve information about all movements for an exci
 
 Use the GET endpoint [Get excise movements](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getAllMovements) to retrieve the status of an existing excise movement.
 
+## Requirements 
+
+The consignor ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
+
 ## Query parameters
 
 | Parameter | Type | Details |

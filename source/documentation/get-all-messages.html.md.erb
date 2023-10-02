@@ -9,21 +9,50 @@ This is prototype information and is likely to change.
 
 Use the GET endpoint [Get all messages for an excise movement using the movement ID](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getAllMessages) to get all messages for a specific excise movement.
 
-## Filters
-
-You can filter messages on:
-
-- date range
-- message type
-
-## Successful response
-
-A successful response will contain:
-
-- the message ID
-- the message body
-- the message type
-
 ## Requirements 
 
 The consignor ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
+
+## Query parameters
+
+| Parameter | Type | Details |
+| -- | -- | -- |
+| Date range | String | Filter messages by date range |
+| Message type| String | Filter messages by message type |
+| LRN | String | Filter messages by local reference number (LRN)|
+
+## Messages
+
+You can receive the following message types from this endpoint:
+
+| Message | Schema link |
+| --- | --- |
+| Generic refusal message (IE704) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie704uk.xsd) |
+| E-AD/E-SAD container (IE801) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie801.xsd) |
+| Reminder Message for Excise Movement (IE802) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie802.xsd) |
+| Notification of Diverted E-AD/E-SAD (IE803) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie803.xsd) |
+| Interruption of Movement (IE807) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie807.xsd) |
+| Cancellation (IE810) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie810-v16-0.xsd) |
+| Change of destination (IE813) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie813-v16-0.xsd) |
+| Submit a new draft movement (IE815) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie815-v16-0.xsd) |
+| Report of receipt (IE818) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie818-v16-0.xsd) |
+| Alert or rejection of E-AD/E-SAD (IE819) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie819-v16-0.xsd) |
+| Split movement (IE825) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie825-v16-0.xsd) |
+| Notification of Accepted Export (IE829) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie829.xsd) |
+| Explain delay to delivery (IE837) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie837-v16-0.xsd) |
+| Refusal by Customs (IE839) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie839.xsd) |
+| Event Report Envelope (IE840) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie840.xsd) |
+| Reason for shortage (IE871) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie871-v16-0.xsd) |
+| Manual Closure Response (IE881) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie881.xsd) |
+| Status Response (IE905) | [XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie905.xsd) |
+
+## Responses 
+
+Full details of successful and unsuccessful responses and their schema can be found in the [API reference](api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getAllMessages) on the HMRC Developer Hub.
+
+| Response code | Status | Details | Contents | 
+| -- | -- | -- | -- |
+| 200 | Successful | Successful operation | ID, body, type|
+| 403 | Unsuccessful | Consignor ID or consignee ID is not in authorisation bearer token | N/A |
+| 404 | Unsuccessful | Unknown excise movement identifier | N/A |
+
