@@ -13,9 +13,11 @@ If you have previously used the EMCS SOAP API, you may find the following inform
 
 The endpoints accept data in XML format, and now return data in XML wrapped in JSON.
 
-The structure of the old XML remains the same, but is now accepted in a RESTful API. Request schema can be found [on GitHub](https://github.com/hmrc/excise-movement-control-system-api/tree/main/app/xsd).
+The XML for the IE messages remains the same as the SOAP API. The SOAP API wrapped the XML in a SOAP envelope, but this will no longer be needed in the RESTful API.
 
-There is no longer an individual endpoint for every message you need to send. Many different messages can now be sent to a single endpoint, ['Submit a message for an excise movement'](Submit a message for an excise movement)
+Request schema can be found [on GitHub](https://github.com/hmrc/excise-movement-control-system-api/tree/main/app/xsd).
+
+There is no longer an individual endpoint for every message you need to send. Many different messages can now be sent to a single endpoint, ['Submit a message for an excise movement'](/guides/emcs-api-service-guide/documentation/submit-message.html)
 
 ## Equivalent SOAP API endpoints
 

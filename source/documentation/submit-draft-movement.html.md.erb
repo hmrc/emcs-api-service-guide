@@ -29,13 +29,18 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 202 | Successful | Accepted | Consignor ID, local reference number, consignee ID, administrative reference code, status|
+| 202 | Successful | Accepted | Consignor ID, local reference number, consignee ID, status|
 | 400 | Unsuccessful | The submission of draft movement message has failed validation | DateTime, EMCS correlation ID, message, debug message |
 | 403 | Unsuccessful | Consignor ID is not in authorisation bearer token | N/A |
 | 404 | Unsuccessful | Connection refused | DateTime, EMCS correlation ID, message, debug message |
 | 500 | Unsuccessful | Internal server error | DateTime, EMCS correlation ID, message, debug message |
 | 503 | Unsuccessful | Downstream service is unavailable | DateTime, EMCS correlation ID, message, debug message |
 
-## Administrative reference code (ARC)
+## Validation and administrative reference code (ARC)
 
-Once you have submitted a movement, you will get an ARC back as part of a successful 202 response.
+For level 1 and level 2 validation, you will receive an instant response.
+
+For level 3 validation, once you have submitted a movement, you will need to poll the [Get all messages for an excise movement using the movement ID](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getAllMessages) endpoint. You will receive one of the following:
+
+* an E-AD/E-SAD container (IE801) message which contains the ARC
+* a generic refusal (IE704) message which contains error details
