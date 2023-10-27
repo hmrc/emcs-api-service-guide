@@ -5,41 +5,40 @@ weight: 30
 
 # Submit a new draft excise movement
 
-This is draft information for the prototype and is likely to change.
+Consignors must submit a new draft excise movement before a movement of excise goods can take place. This is also called a ‘submit draft movement’ (IE815) message, or a 'draft e-AD'.
 
 Use the POST endpoint [Submit a new draft excise movement](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/submitMovement) to create a new excise movement. 
 
-This request is also called a ‘submit draft movement’ (IE815) message. 
+## Message structures
 
-## Successful response
+Full details of the message structure can be found in the [technical interface specification]().
 
-If you use this endpoint to send a small message (up to 10MB), a successful response will contain:
+## Request body schema
 
-- a movement ID
-- a consignor ID
-- a local reference number (LRN)
-- a status
+The body for this request should be an XML body that conforms to the [IE815 XML Schema](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie815-v16-0.xsd).
 
-It may also contain an administrative reference code (ARC).
-
-### Statuses
-
-The possible statuses contained in a successful response include:
-
-- Accepted
-- Cancelled
-- Delivered
-- Diverted
-- Rejected
-- Replaced
-- e-AD / e-SAD Manually Closed
-- Refused
-- None
-- Partially Refused
-- Exporting
-- Accepted for Export
-- Stopped
-
-## Note
+## Requirements
 
 The consignor ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
+
+## Responses
+
+Full details of successful and unsuccessful responses and their schema can be found in the [API reference](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/submitMovement) on the HMRC Developer Hub.
+
+| Response code | Status | Details | Contents | 
+| -- | -- | -- | -- |
+| 202 | Successful | Accepted | Consignor ID, local reference number, consignee ID, status|
+| 400 | Unsuccessful | The submission of draft movement message has failed validation | DateTime, EMCS correlation ID, message, debug message |
+| 403 | Unsuccessful | Consignor ID is not in authorisation bearer token | N/A |
+| 404 | Unsuccessful | Connection refused | DateTime, EMCS correlation ID, message, debug message |
+| 500 | Unsuccessful | Internal server error | DateTime, EMCS correlation ID, message, debug message |
+| 503 | Unsuccessful | Downstream service is unavailable | DateTime, EMCS correlation ID, message, debug message |
+
+## Validation and administrative reference code (ARC)
+
+For level 1 and level 2 validation, you will receive an instant response.
+
+For level 3 validation, once you have submitted a movement, you will need to poll the [Get all messages for an excise movement using the movement ID](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getAllMessages) endpoint. You will receive one of the following:
+
+* an E-AD/E-SAD container (IE801) message which contains the ARC
+* a generic refusal (IE704) message which contains error details
