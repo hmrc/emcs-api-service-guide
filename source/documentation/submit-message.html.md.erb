@@ -15,6 +15,14 @@ The X-Message-Type header **must** be the same as in the message body.
 
 The consignor ID or consignee ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
 
+## Path parameters
+
+Parameters must be entered in lowercase.
+
+| Parameter | Type | Details |
+| -- | -- | -- |
+| lrn | String | Filter messages by local reference number (LRN) |
+
 ## Messages
 
 You can submit the following message types to this endpoint:
@@ -28,24 +36,18 @@ You can submit the following message types to this endpoint:
 | IE837 - Explain delay to delivery | [IE837 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie837.xsd) |
 | IE871 - Reason for shortage | [IE871 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie871.xsd) |
 
-
-
-
-
-
-
-
-
 ## Responses
 
 Full details of successful and unsuccessful responses and their schema can be found in the [API reference](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/postMessage) on the HMRC Developer Hub.
 
-| Response code | Status | Details | 
-| -- | -- | -- | -- |
-| 200 | Successful | Successful operation | 
-| 400 | Unsuccessful | The submitted message has failed validation |
-| 403 | Unsuccessful | Consignor ID or consignee ID is not in authorisation bearer token | 
-| 404 | Unsuccessful | Unknown excise movement identifier | 
-| 500 | Unsuccessful | Internal server error | 
+| Response code | Status | Details | Contents |
+| -- | -- | -- | -- | -- |
+| 200 | Successful | Successful operation | N/A |
+| 400 | Unsuccessful | The submitted message has failed validation | dateTime, EMCS Correlation ID, message, debug message, errors| 
+| 401 | Unsuccessful | Consignor or consignee not authorized. Invalid enrolment parameter | N/A | 
+| 403 | Unsuccessful | Consignor ID or consignee ID is not in authorisation bearer token | N/A |
+| 404 | Unsuccessful | Unknown excise movement identifier | dateTime, EMCS Correlation ID, message, debug message, errors |
+| 500 | Unsuccessful | Internal server error | dateTime, EMCS Correlation ID, message, debug message, errors |
+| 503 | Unsuccessful | Downstream service is unavailable | dateTime, EMCS Correlation ID, message, debug message, errors |
 
 

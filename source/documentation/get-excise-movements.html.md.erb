@@ -11,15 +11,18 @@ Use the GET endpoint [Get excise movements](/api-documentation/docs/api/service/
 
 ## Requirements 
 
-The consignor ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
+You will only be able to retrieve movements where the consignor ID or consignee ID of the movement matches any of your excise reference numbers (ERNs) in the bearer token that you use for API authentication.
 
 ## Query parameters
 
+Query parameters must be entered in lowercase.
+
 | Parameter | Type | Details |
 | -- | -- | -- |
-| ERN | String | Filter excise movements by excise reference number (consignor ID/consignee ID). If you do not provide an excise reference number (ERN) as a query parameter, you will get a list for all ERNs in your bearer token. |
-| ARC | String |Filter excise movements by administrative reference code (ARC)|
-| LRN | String | Filter excise movements by local reference number (LRN)|
+| ern          | String                        | Filter excise movements by excise reference number (consignor ID/consignee ID). If you do not provide an excise reference number (ERN) as a query parameter, you will get a list for all ERNs in your bearer token. |
+| arc          | String                        | Filter excise movements by administrative reference code (ARC)|
+| lrn          | String                        | Filter excise movements by local reference number (LRN)|
+| updatedSince | String <date-time> (DateTime) | Filter excise movements modified after provided timestamp. This can be used to poll for any updated movements.<br></br><br></br> For each updated movement that is returned, you can then call the [Get all messages endpoint](get-all-messages.html) and pass in the same value for its "updatedSince" query parameter to get the messages that have been received since you last polled.|
 
 ## Responses 
 
@@ -27,5 +30,5 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 200 | Successful | Accepted | Consignor ID, local reference number, consignee ID, administrative reference code, status|
-| 404 | Unsuccessful | No excise movements found for ERN | N/A |
+| 200 | Successful | Successful operation. If there are no movements for any of your excise reference numbers (ERNs) in your bearer token or because of the filters, this will return an empty list. | Consignor ID, local reference number, consignee ID, administrative reference code, status|
+| 401 | Unsuccessful | Consignor or Consignee not authorized. Invalid enrolment parameter.| N/A |

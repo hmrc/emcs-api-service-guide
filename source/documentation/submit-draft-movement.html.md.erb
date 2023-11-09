@@ -11,7 +11,7 @@ Use the POST endpoint [Submit a new draft excise movement](/api-documentation/do
 
 ## Message structures
 
-Full details of the message structure can be found in the [technical interface specification]().
+Full details of the message structure can be found in the [technical interface specification](/guides/excise-movement-control-system-api-tis/documentation/messagetypes.html).
 
 ## Request body schema
 
@@ -28,11 +28,12 @@ Full details of successful and unsuccessful responses and their schema can be fo
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
 | 202 | Successful | Accepted | Consignor ID, local reference number, consignee ID, status|
-| 400 | Unsuccessful | The submission of draft movement message has failed validation | DateTime, EMCS correlation ID, message, debug message |
+| 400 | Unsuccessful | The submission of draft movement message has failed validation | DateTime, EMCS correlation ID, message, debug message, errors |
+| 401 | Unsuccessful | Consignor not authorized. Invalid enrolment parameter | N/A |
 | 403 | Unsuccessful | Consignor ID is not in authorisation bearer token | N/A |
-| 404 | Unsuccessful | Connection refused | DateTime, EMCS correlation ID, message, debug message |
-| 500 | Unsuccessful | Internal server error | DateTime, EMCS correlation ID, message, debug message |
-| 503 | Unsuccessful | Downstream service is unavailable | DateTime, EMCS correlation ID, message, debug message |
+| 404 | Unsuccessful | Connection refused | DateTime, EMCS correlation ID, message, debug message, errors |
+| 500 | Unsuccessful | Internal server error | DateTime, EMCS correlation ID, message, debug message, errors |
+| 503 | Unsuccessful | Downstream service is unavailable | DateTime, EMCS correlation ID, message, debug message, errors |
 
 ## Validation and administrative reference code (ARC)
 
