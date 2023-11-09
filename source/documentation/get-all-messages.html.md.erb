@@ -17,13 +17,13 @@ Parameters must be entered in lowercase.
 
 | Parameter | Type | Details |
 | -- | -- | -- |
-| lrn | String | Filter messages by local reference number (LRN) |
+| lrn | String | The local reference number (LRN) of the movement |
 
 ## Query parameters
 
 | Parameter | Type | Details |
 | -- | -- | -- |
-| updatedSince | String <date-time> (DateTime) | Filter excise movements modified after provided timestamp. This can be used to poll for new messages per ERN/LRN combination.<br></br><br></br> You can also pollon the [Get excise movements endpoint](get-excise-movements.html) which allows a more efficient way to poll as that can first give you a list of movements that have new messages, and then use this endpoint to retrieve the updated messages for those movements.|
+| updatedSince | String <date-time> (DateTime) | Filter excise movements modified after provided timestamp. This can be used to poll for new messages per ERN/LRN combination.<br></br><br></br> You can also poll on the [Get excise movements endpoint](get-excise-movements.html) which allows a more efficient way to poll as that can first give you a list of movements that have new messages, and then use this endpoint to retrieve the updated messages for those movements.|
 
 ## Messages
 
