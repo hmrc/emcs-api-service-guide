@@ -11,13 +11,19 @@ Use the GET endpoint [Get all messages for an excise movement using the movement
 
 The consignor ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
 
+## Path parameters
+
+Parameters must be entered in lowercase.
+
+| Parameter | Type | Details |
+| -- | -- | -- |
+| lrn | String | The local reference number (LRN) of the movement |
+
 ## Query parameters
 
 | Parameter | Type | Details |
 | -- | -- | -- |
-| Date range | String | Filter messages by date range |
-| Message type| String | Filter messages by message type |
-| LRN | String | Filter messages by local reference number (LRN)|
+| updatedSince | String <date-time> (DateTime) | Filter excise movements modified after provided timestamp. This can be used to poll for new messages per ERN/LRN combination.<br></br><br></br> You can also poll on the [Get excise movements endpoint](get-excise-movements.html) which allows a more efficient way to poll as that can first give you a list of movements that have new messages, and then use this endpoint to retrieve the updated messages for those movements.|
 
 ## Messages
 
@@ -50,7 +56,8 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 200 | Successful | Successful operation | ID, body, type|
-| 403 | Unsuccessful | Consignor ID or consignee ID is not in authorisation bearer token | N/A |
-| 404 | Unsuccessful | Unknown excise movement identifier | N/A |
+| 200 | Successful | Successful operation | encodedMessage, createdOn, type|
+| 401 | Unsuccessful | Consignor or Consignee not authorized. Invalid enrolment parameter | N/A |
+| 403 | Unsuccessful | The requested movement's consignor ID or consignee ID is not in authorisation bearer token| N/A |
+| 404 | Unsuccessful | Unknown movement, based on the provided local reference number| N/A |
 
