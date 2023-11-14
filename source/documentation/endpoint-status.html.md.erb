@@ -6,25 +6,15 @@ weight: 91
 # Endpoint delivery status
 <%= partial 'documentation/partials/google_tag_manager_js' %>
 
+## Availability
+
 The full API will be available in the production environment in January 2024.
 
-The test API is being released in stages. The development status of each endpoint can be found in the table below.
-
-| Endpoint / Message       | Expected date of delivery | Actual date of delivery  |
-| ----------- | ----------- | ----------- | ---------|
-| Submit a new draft excise movement (IE815)| 30/10/2023| 30/10/2023 |
-| Get messages for a movement| 30/10/2023 | 30/10/2023 |
-| Get movements| 30/10/2023 | 30/10/2023 |
-| Submit messages for movements - only supporting Submit record of receipt (IE818)| 30/10/2023 | 30/10/2023 |
-| Submit reason for delay (IE837)| 10/11/2023| 09/11/2023 |
-| Submit cancellation (IE810)| 10/11/2023| 09/11/2023 |
-| Submit change of destination (IE813)| 10/11/2023| 10/11/2023 |
-| Submit reason for shortage (IE871)| 10/11/2023| 10/11/2023 |
-| Submit alert or rejection (IE819)| 10/11/2023| 10/11/2023 |
+The test API has been released and is available. More information on the testing process and test scenarios can be found in the [EMCS API testing guide](/guides/emcs-api-testing-guide/).
 
 ## Stubbed responses
 
-To allow users to be able to rapidly test the new EMCS API, we have stubbed the back end. If you submit a specific message, you will receive a pre-defined response. There is no validation on the messages, except for simple schema validation. 
+To allow users to be able to rapidly test the new EMCS API, we have stubbed the back end. To act as a realistic representation of the production API, the stub provides the same validation for level 1 and level 2 validation as the production API will. It does not provide level 3 validation.
 
 More information about the stubbed responses you can receive is available on the [testing guide](/guides/emcs-api-testing-guide/).
 
