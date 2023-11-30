@@ -8,7 +8,7 @@ weight: 103
 
 This page can be used as a quick reference guide. 
 
-The technical interface specification contains [more detailed information on error codes](link to TIS page with spreadsheet), including business codes and old messages. 
+[A workbook with more detailed information on error codes](/guides/excise-movement-control-system-api-tis/documentation/validation-rules.html) is available in the technical interface specification. The workbook includes validation rules and old error messages.
 
 Error codes are available for the following messages:
 
@@ -150,8 +150,8 @@ Error codes are available for the following messages:
 | 	8085	 | 		 | 	You have selected the deferred indicator. The Date of Dispatch must be on or before the date of submission. Please amend your entry and resubmit.	 | 	DateOfDispatch	 | 
 | 	8086	 | 		 | 	You have entered an Excise Product Code of S500. The correct CN Code to be input is 10000000. Please amend your entry and resubmit.	 | 	CnCode	 | 
 | 	8087	 | 		 | 	The Excise Product Category Code is not valid for this CN Code. Please enter a valid Excise Product Category Code.	 | 	ExciseProductCode	 | 
-| 	8088	 | 		 | 		 | 	GuarantorTypeCode	 | 
-| 	8097	 | 		 | 		 | 	ExciseProductCode	 | 
+| 	8088	 | 		 | 	The Guarantor Type Code is invalid. Please amend your entry and resubmit.	 | 	GuarantorTypeCode	 | 
+| 	8097	 | 		 | 	The Excise Product Code you have entered is not in the correct format. It should be alphanumeric starting with the letters E, T, W, B, I or S followed by three numeric characters. Please amend your entry and resubmit. 	 | 	ExciseProductCode	 | 
 | 	8130	 | 		 | 	You must provide the first transporter information. Please amend your entry and resubmit.	 | 	SubmittedDraftOfEADESAD	 | 
 | 	8131	 | 		 | 	The language code for the place of dispatch trader on the draft movement must be provided. Please contact your software supplier for further advice.	 | 	PlaceOfDispatchTrader	 | 
 | 	8132	 | 		 | 	You must provide the serial number of the certificate of exemption. Please amend your entry and resubmit.	 | 	ComplementConsigneeTrader	 | 
