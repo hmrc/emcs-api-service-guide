@@ -42,10 +42,10 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents |
 | -- | -- | -- | -- | -- |
-| 200 | Successful | Successful operation | N/A |
+| 202 | Successful | Message accepted | N/A |
 | 400 | Unsuccessful | The submitted message has failed validation | dateTime, EMCS Correlation ID, message, debug message, errors| 
-| 401 | Unsuccessful | Consignor or consignee not authorized. Invalid enrolment parameter | N/A | 
-| 403 | Unsuccessful | Consignor ID or consignee ID is not in authorisation bearer token | N/A |
+| 401 | Unsuccessful | Consignor or Consignee not authorized. Invalid enrolment parameter | N/A | 
+| 403 | Unsuccessful | Consignor ID or consignee ID in submitted message is not in authorisation bearer token | N/A |
 | 404 | Unsuccessful | Unknown excise movement identifier | dateTime, EMCS Correlation ID, message, debug message, errors |
 | 500 | Unsuccessful | Internal server error | dateTime, EMCS Correlation ID, message, debug message, errors |
 | 503 | Unsuccessful | Downstream service is unavailable | dateTime, EMCS Correlation ID, message, debug message, errors |

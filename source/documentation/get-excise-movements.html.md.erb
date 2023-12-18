@@ -32,3 +32,21 @@ Full details of successful and unsuccessful responses and their schema can be fo
 | -- | -- | -- | -- |
 | 200 | Successful | Successful operation. If there are no movements for any of your excise reference numbers (ERNs) in your bearer token or because of the filters, this will return an empty list. | Consignor ID, local reference number, consignee ID, administrative reference code, status|
 | 401 | Unsuccessful | Consignor or Consignee not authorized. Invalid enrolment parameter.| N/A |
+
+### Statuses
+
+The following statuses can be returned as part of a 200 Successful response:
+
+- Accepted 
+- Accepted for export 
+- Cancelled 
+- Delivered 
+- Diverted 
+- e-AD/e-SAD manually closed 
+- Exporting 
+- None 
+- Partially refused 
+- Refused 
+- Rejected 
+- Replaced 
+- Stopped
