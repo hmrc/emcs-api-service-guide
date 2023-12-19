@@ -7,24 +7,20 @@ weight: 70
 <%= partial 'documentation/partials/google_tag_manager_js' %>
 Use the GET endpoint [Get information relating to an excise trader](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Traders/operation/prevalidateTrader) to get information about an exise trader.
 
-## Query parameters
+## Request body schema
 
-The query must contain the following parameters:
+Full details of the request body schema can be found in the [API reference](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/prevalidateTrader).
 
-| Parameter | Type | Details |
-| -- | -- | -- |
-| Trader ID | String | The excise reference number of the trader |
-| Trader type | String | The type of excise trader |
-| Excise product code | Array of stringa | The excise products catergory code |
+The request body must include the excise reference number (ERN), entity group and authorisation request.
 
-### Trader types
+### Entity groups
 
-The following trader types exist:
+The following entity groups are available:
 
 - UK Record
 - EU Trader
 - EU Warehouse
-- EU Temp authorisation
+- EU Temporary Authorisation
 
 ## Responses 
 
@@ -32,6 +28,19 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 200 | Successful | Successful operation | Excise ID, valid trader |
-| 401 | Unsuccesful| Consignor or consignee not authorized. Invalid enrolment parameter |
-| 404 | Unsuccessful | Unknown trader | N/A |
+| 200 | Successful | Validation performed successfully | validation timestamp, excise trader validation response including: ERN, entity group, valid trader, trader type, validate product authorisation response |
+| 200 | Successful | Validation performed with a business error (invalid trader, invalid product codes) | validation timestamp, excise trader validation response including: ERN, entity group, valid trader, error code, error text, trader type, validate product authorisation response |
+| 400 | Unsuccesful| Invalid JSON or mandatory fields missing | N/A
+| 500 | Unsuccessful | Internal server error | N/A |
+
+### Trader types
+
+The following trader types are available:
+
+1. Warehouse Keeper
+2. Tax Warehouse
+3. Registered Consignor
+4. Registered Consignee
+5. Temporary Registered Consignee
+6. Temporary Registered Authorisation
+7. Other
