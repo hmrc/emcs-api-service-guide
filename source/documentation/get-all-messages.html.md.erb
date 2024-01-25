@@ -9,7 +9,7 @@ Use the GET endpoint [Get all messages for an excise movement using the movement
 
 ## Requirements 
 
-The consignor ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
+The consignor ID or consignee ID of the movement must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
 
 ## Path parameters
 
@@ -17,13 +17,13 @@ Parameters must be entered in lowercase.
 
 | Parameter | Type | Details |
 | -- | -- | -- |
-| lrn | String | The local reference number (LRN) of the movement |
+| movementId | String | The movement ID of the movement |
 
 ## Query parameters
 
 | Parameter | Type | Details |
 | -- | -- | -- |
-| updatedSince | String <date-time> (DateTime) | Filter excise movements modified after provided timestamp. This can be used to poll for new messages per ERN/LRN combination.<br></br><br></br> You can also poll on the [Get excise movements endpoint](get-excise-movements.html) which allows a more efficient way to poll as that can first give you a list of movements that have new messages, and then use this endpoint to retrieve the updated messages for those movements.|
+| updatedSince | String <date-time> (DateTime) | Filter excise movements modified after provided timestamp. This can be used to poll for new messages for the movement.<br></br><br></br> You can also poll on the [Get excise movements endpoint](get-excise-movements.html) which allows a more efficient way to poll as that can first give you a list of movements that have new messages, and then use this endpoint to retrieve the updated messages for those movements.|
 
 ## Messages
 
@@ -56,8 +56,9 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 200 | Successful | Successful operation | encodedMessage, createdOn, type|
-| 401 | Unsuccessful | Consignor or Consignee not authorized. Invalid enrolment parameter | N/A |
+| 200 | Successful | Successful operation | encodedMessage, createdOn, messageType|
+| 400 | Unsuccessful | Invalid movement ID, invalid Updated since format, or not allowed to access this movement | DateTime, message, debugMessage |
+| 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter | N/A |
 | 403 | Unsuccessful | The requested movement's consignor ID or consignee ID is not in authorisation bearer token| N/A |
-| 404 | Unsuccessful | Unknown movement, based on the provided local reference number| N/A |
+| 404 | Unsuccessful | Movement with supplied ID not found for this ERN | DateTime, message, debugMessage |
 

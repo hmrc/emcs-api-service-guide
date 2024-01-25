@@ -11,8 +11,6 @@ Use the POST endpoint [Submit a message for an excise movement](/api-documentati
 
 ## Requirements
 
-The X-Message-Type header **must** be the same as in the message body. 
-
 The consignor ID or consignee ID must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
 
 ## Path parameters
@@ -21,7 +19,7 @@ Parameters must be entered in lowercase.
 
 | Parameter | Type | Details |
 | -- | -- | -- |
-| lrn | String | The local reference number (LRN) of the movement |
+| movementId | String | The movement ID of the movement |
 
 ## Messages
 
@@ -43,15 +41,16 @@ Full details of successful and unsuccessful responses and their schema can be fo
 | Response code | Status | Details | Contents |
 | -- | -- | -- | -- | -- |
 | 202 | Successful | Message accepted | N/A |
-| 400 | Unsuccessful | The submitted message has failed validation | dateTime, EMCS Correlation ID, message, debug message, errors| 
-| 401 | Unsuccessful | Consignor or consignee not authorized. Invalid enrolment parameter | N/A | 
-| 403 | Unsuccessful | Consignor ID or consignee ID in submitted message is not in authorisation bearer token | N/A |
-| 404 | Unsuccessful | Unknown excise movement identifier | dateTime, EMCS Correlation ID, message, debug message, errors |
-| 500 | Unsuccessful | Internal server error | dateTime, EMCS Correlation ID, message, debug message, errors |
-| 503 | Unsuccessful | Downstream service is unavailable | dateTime, EMCS Correlation ID, message, debug message, errors |
+| 400 | Unsuccessful | The submitted message has failed validation. | DateTime, message, debugMessage|
+| 401 | Unsuccessful | Consignor or consignee not authorised. Invalid enrolment parameter. | N/A |
+| 403 | Unsuccessful | Consignor ID or consignee ID in submitted message is not in authorisation bearer token. | N/A |
+| 404 | Unsuccessful | Movement doesn't exist or cannot be accessed by supplied ERN. | DateTime, EMCS Correlation ID, message, debugMessage, status |
+| 422 | Unsuccessful | The message has failed validation. | Message, errors |
+| 500 | Unsuccessful | Internal server error. | DateTime, EMCS Correlation ID, message, debugMessage, status |
+| 503 | Unsuccessful | Downstream service is unavailable. | DateTime, EMCS Correlation ID, message, debugMessage, status |
 
 ## Error codes
 
-A [list of potential error codes](error-codes.html/#ie815-submit-draft-movement) is available in this service guide.
+A [list of potential error codes](error-codes.html#ie815-submit-draft-movement) is available in this service guide.
 
 [A workbook with more detailed information on error codes](/guides/excise-movement-control-system-api-tis/documentation/validation-rules.html) is available in the technical interface specification. The workbook includes validation rules and old error messages.
