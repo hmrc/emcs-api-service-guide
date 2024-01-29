@@ -13,15 +13,15 @@ Information on the test process can be found in the [EMCS API testing guide](/gu
 ## Typical workflow
 
 
-1. The consignor submits a draft movement (IE815) message,  and will asynchronously receive a validated e-AD (IE801) message in return to notify them that their draft movement has been accepted.
+1. The consignor [submits a draft movement](submit-draft-movement.html) (IE815) message,  and will asynchronously receive a validated e-AD (IE801) message in return to notify them that their draft movement has been accepted.
 
-2. The consignor or consignee can call the [get excise movements endpoint](link to OAS) to retrieve the status of the excise movement. 
+2. The consignor or consignee can call the [get excise movements endpoint](get-excise-movements.html) or [the get single excise movement endpoint](get-excise-movement.html) to retrieve the status of the excise movement.
 
 3. Using the  ‘updatedSince’ query parameter with the get excise movements endpoint, consignors or consignees can filter excise movements modified after the last time they polled for messages. 
 
-4. For each updated movement that gets returned, they can then call the  [get all messages for an excise movement endpoint](link to OAS) and pass in the same value for its "updatedSince" query parameter to get the messages that have been received since they last polled. This service guide contains a [list of all messages it is possible to receive](documentation/get-all-messages.html#messages).
+4. For each updated movement that gets returned, they can then call the  [get all messages for an excise movement endpoint](get-all-messages.html) and pass in the same value for its "updatedSince" query parameter to get the messages that have been received since they last polled. This service guide contains a [list of all messages it is possible to receive](get-all-messages.html#messages).
 
-5. The consignor or consignee can use the [submit a message for an excise movement endpoint](link to OAS) to update the movement with the following messages:
+5. The consignor or consignee can use the [submit a message for an excise movement endpoint](submit-message.html) to update the movement with the following messages:
  * IE810 - Cancellation	
  * IE813 - Change of destination
  * IE818 - Report of receipt

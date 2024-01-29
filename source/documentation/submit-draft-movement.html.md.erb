@@ -27,17 +27,18 @@ Full details of successful and unsuccessful responses and their schema can be fo
 <%= partial 'documentation/partials/google_tag_manager_js' %>
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 202 | Successful | Accepted | Consignor ID, local reference number, consignee ID, status|
-| 400 | Unsuccessful | The submission of draft movement message has failed validation | DateTime, EMCS correlation ID, message, debug message, errors |
-| 401 | Unsuccessful | Consignor not authorized. Invalid enrolment parameter | N/A |
+| 202 | Successful | Accepted | Movement Id, Box ID, consignor ID, local reference number, consignee ID, status|
+| 400 | Unsuccessful | The submission of draft movement message has failed validation | DateTime, message, debug message |
+| 401 | Unsuccessful | Consignor not authorised. Invalid enrolment parameter | N/A |
 | 403 | Unsuccessful | Consignor ID is not in authorisation bearer token | N/A |
-| 404 | Unsuccessful | Connection refused | DateTime, EMCS correlation ID, message, debug message, errors |
-| 500 | Unsuccessful | Internal server error | DateTime, EMCS correlation ID, message, debug message, errors |
-| 503 | Unsuccessful | Downstream service is unavailable | DateTime, EMCS correlation ID, message, debug message, errors |
+| 404 | Unsuccessful | Connection refused | DateTime, EMCS correlation ID, message, debug message, status |
+| 422 | Unsuccessful | The draft message has failed validation | Message, errors |
+| 500 | Unsuccessful | Internal server error | DateTime, EMCS correlation ID, message, debug message, status |
+| 503 | Unsuccessful | Downstream service is unavailable | DateTime, EMCS correlation ID, message, debug message, status |
 
 ## Error codes
 
-A [list of potential IE815 error codes](error-codes.html/#ie815-submit-draft-movement) is available in this service guide.
+A [list of potential IE815 error codes](error-codes.html#ie815-submit-draft-movement) is available in this service guide.
 
 [A workbook with more detailed information on error codes](/guides/excise-movement-control-system-api-tis/documentation/validation-rules.html) is available in the technical interface specification. The workbook includes validation rules and old error messages.
 
