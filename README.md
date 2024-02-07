@@ -17,7 +17,7 @@ bundle install
 
 ## Making changes
 
-To make changes edit the source files in the `source` folderxxx.
+To make changes edit the source files in the `source` folder.
 
 ### Single page output
 
