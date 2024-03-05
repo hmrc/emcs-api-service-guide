@@ -1,0 +1,62 @@
+---
+title: Get all messages for an excise movement
+weight: 60
+---
+
+# Get a message belomging to an excise movement
+<%= partial 'documentation/partials/google_tag_manager_js' %>
+Use the GET endpoint [Get a messages for an excise movement using the movement ID and messageId](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getMessage) to get a message belonging to a specific excise movement.
+
+## Requirements
+
+The consignor ID or consignee ID of the movement must match an excise reference number (ERN) in the bearer token that you use for API authentication. If it does not, a 403 Forbidden error will be thrown.
+
+## Path parameters
+
+Parameters must be entered in lowercase.
+
+| Parameter | Type | Details |
+| -- | -- | -- |
+| movementId    | string      | The movement ID of the movement |
+| messageId     | string    | The message ID of the message |
+
+## Query parameters
+
+## Messages
+
+You can receive one of the following message types from this endpoint:
+
+| Message | Schema link |
+| --- | --- |
+| IE704 - Generic refusal message | [IE704 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie704uk.xsd) |
+| IE717 - Control report | [IE717 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie717.xsd)
+| IE801 - E-AD/E-SAD container | [IE801 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie801.xsd) |
+| IE802 - Reminder Message for Excise Movement | [IE802 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie802.xsd) |
+| IE803 - Notification of Diverted E-AD/E-SAD | [IE803 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie803.xsd) |
+| IE807 - Interruption of Movement | [IE807 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie807.xsd) |
+| IE810 - Cancellation | [IE810 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie810.xsd) |
+| IE813 - Change of destination | [IE813 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie813.xsd) |
+| IE818 - Report of receipt | [IE818 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie818.xsd) |
+| IE819 - Alert or rejection of E-AD/E-SAD | [IE819 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie819.xsd) |
+| IE829 - Notification of Accepted Export | [IE829 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie829.xsd) |
+| IE837 - Explain delay to delivery | [IE837 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie837.xsd) |
+| IE839 - Refusal by Customs | [IE839 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie839.xsd) |
+| IE840 - Event Report Envelope | [IE840 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie840.xsd) |
+| IE871 - Reason for shortage | [IE871 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie871.xsd) |
+| IE880 - Manual Closure Request | [IE880 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie880.xsd)
+| IE881 - Manual Closure Response | [IE881 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie881.xsd) |
+| IE905 - Status Response | [IE905 XSD](https://github.com/hmrc/excise-movement-control-system-api/blob/main/app/xsd/ie905.xsd) |
+
+## Responses
+
+Full details of successful and unsuccessful responses and their schema can be found in the [API reference](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getMessage) on the HMRC Developer Hub.
+
+| Response code | Status | Details | Contents |
+| -- | -- | -- | -- |
+| 200 | Successful | Successful operation | xml message format (for schema of each message see above)|
+| 400 | Unsuccessful | Invalid movement ID, invalid Updated since format, or not allowed to access this movement | DateTime, message, debugMessage |
+| 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter | N/A |
+| 403 | Unsuccessful | The requested movement's consignor ID or consignee ID is not in authorisation bearer token| N/A |
+| 404 | Unsuccessful | Movement with supplied ID not found for this ERN | DateTime, message, debugMessage |
+| 404 | Unsuccessful | Message with supplied ID not found for this ERN | DateTime, message, debugMessage |
+
