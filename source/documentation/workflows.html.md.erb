@@ -17,9 +17,9 @@ Information on the test process can be found in the [EMCS API testing guide](/gu
 
 2. The consignor or consignee can call the [get excise movements endpoint](get-excise-movements.html) or [the get single excise movement endpoint](get-excise-movement.html) to retrieve the status of the excise movement.
 
-3. Using the  ‘updatedSince’ query parameter with the get excise movements endpoint, consignors or consignees can filter excise movements modified after the last time they polled for messages. 
+3. Using the ‘updatedSince’ query parameter with the [get excise movements endpoint](get-excise-movements.html), consignors or consignees can filter excise movements modified after the last time they polled for messages.
 
-4. For each updated movement that gets returned, they can then call the  [get all messages for an excise movement endpoint](get-all-messages.html) and pass in the same value for its "updatedSince" query parameter to get the messages that have been received since they last polled. This service guide contains a [list of all messages it is possible to receive](get-all-messages.html#messages).
+4. For each updated movement that gets returned, they can then call the [get all messages for an excise movement endpoint](get-all-messages.html) and pass in the same value for its "updatedSince" query parameter to get the messages that have been received since they last polled. This service guide contains a [list of all messages it is possible to receive](get-all-messages.html#messages).
 
 5. The consignor or consignee can use the [submit a message for an excise movement endpoint](submit-message.html) to update the movement with the following messages:
  * IE810 - Cancellation	
