@@ -28,11 +28,12 @@ Full details of successful and unsuccessful responses and their schema can be fo
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
 | 202 | Successful | Accepted | Movement Id, Box ID, consignor ID, local reference number, consignee ID, status|
-| 400 | Unsuccessful | The submission of draft movement message has failed validation | DateTime, message, debug message |
+| 400 | Unsuccessful | The submission of draft movement message has failed validation | DateTime, EMCS correlation ID, message, debug message, status |
 | 401 | Unsuccessful | Consignor not authorised. Invalid enrolment parameter | N/A |
 | 403 | Unsuccessful | Consignor ID is not in authorisation bearer token | N/A |
+| 403 | Unsuccessful | Logged in ERN cannot send this message | DateTime, message, debug message |
 | 404 | Unsuccessful | Connection refused | DateTime, EMCS correlation ID, message, debug message, status |
-| 422 | Unsuccessful | The draft message has failed validation | Message, errors |
+| 422 | Unsuccessful | The draft message has failed validation | EMCS correlation ID, message, validationResults |
 | 500 | Unsuccessful | Internal server error | DateTime, EMCS correlation ID, message, debug message, status |
 | 503 | Unsuccessful | Downstream service is unavailable | DateTime, EMCS correlation ID, message, debug message, status |
 
@@ -46,7 +47,7 @@ A [list of potential IE815 error codes](error-codes.html#ie815-submit-draft-move
 
 For level 1 and level 2 validation, you will receive an instant response.
 
-For level 3 validation, once you have submitted a movement, you will need to poll the [Get all messages for an excise movement using the movement ID](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getAllMessages) endpoint. You will receive one of the following:
+For level 3 validation, once you have submitted a movement, you will need to poll the [Get all messages for an excise movement using the movement ID](/documentation/get-all-messages.html) endpoint. You will receive one of the following:
 
 * an E-AD/E-SAD container (IE801) message which contains the ARC
 * a generic refusal (IE704) message which contains error details

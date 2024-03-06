@@ -15,8 +15,6 @@ You will only be able to retrieve movements where the consignor ID or consignee 
 
 ## Path parameters
 
-Parameters must be entered in lowercase.
-
 | Parameter | Type | Details |
 | -- | -- | -- |
 | movementId | String | The movement ID of the movement |
@@ -27,25 +25,7 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 200 | Successful | Successful operation. | Movement ID, consignor ID, local reference number, consignee ID, administrative reference code, status |
+| 200 | Successful | Successful operation. | Movement ID, consignor ID, local reference number, consignee ID, administrative reference code |
 | 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter.| N/A |
 | 403 | Unsuccessful | ERN is not in authorisation bearer token. | N/A |
 | 404 | Unsuccessful | Movement with supplied ID not found for this ERN | DateTime, message, debugMessage |
-
-### Statuses
-
-The following statuses can be returned as part of a 200 Successful response:
-
-- Accepted 
-- Accepted for export 
-- Cancelled 
-- Delivered 
-- Diverted 
-- e-AD/e-SAD manually closed 
-- Exporting 
-- None 
-- Partially refused 
-- Refused 
-- Rejected 
-- Replaced 
-- Stopped
