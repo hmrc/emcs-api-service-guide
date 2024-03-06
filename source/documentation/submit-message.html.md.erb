@@ -15,8 +15,6 @@ The consignor ID or consignee ID must match an excise reference number (ERN) in 
 
 ## Path parameters
 
-Parameters must be entered in lowercase.
-
 | Parameter | Type | Details |
 | -- | -- | -- |
 | movementId | String | The movement ID of the movement |
@@ -44,8 +42,9 @@ Full details of successful and unsuccessful responses and their schema can be fo
 | 400 | Unsuccessful | The submitted message has failed validation. | DateTime, message, debugMessage|
 | 401 | Unsuccessful | Consignor or consignee not authorised. Invalid enrolment parameter. | N/A |
 | 403 | Unsuccessful | Consignor ID or consignee ID in submitted message is not in authorisation bearer token. | N/A |
+| 403 | Unsuccessful | Logged in ERN cannot send this message | DateTime, message, debug message |
 | 404 | Unsuccessful | Movement doesn't exist or cannot be accessed by supplied ERN. | DateTime, EMCS Correlation ID, message, debugMessage, status |
-| 422 | Unsuccessful | The message has failed validation. | Message, errors |
+| 422 | Unsuccessful | The message has failed validation. | EMCS Correlation Id, message, validatorResults |
 | 500 | Unsuccessful | Internal server error. | DateTime, EMCS Correlation ID, message, debugMessage, status |
 | 503 | Unsuccessful | Downstream service is unavailable. | DateTime, EMCS Correlation ID, message, debugMessage, status |
 

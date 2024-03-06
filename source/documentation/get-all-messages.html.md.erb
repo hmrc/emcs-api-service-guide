@@ -13,13 +13,13 @@ The consignor ID or consignee ID of the movement must match an excise reference 
 
 ## Path parameters
 
-Parameters must be entered in lowercase.
-
 | Parameter | Type | Details |
 | -- | -- | -- |
 | movementId | String | The movement ID of the movement |
 
 ## Query parameters
+
+The query parameter must be entered as listed below. It is optional.
 
 | Parameter | Type | Details |
 | -- | -- | -- |
@@ -56,7 +56,7 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 200 | Successful | Successful operation | encodedMessage, createdOn, messageType|
+| 200 | Successful | Successful operation | encodedMessage, createdOn, messageType, messageId |
 | 400 | Unsuccessful | Invalid movement ID, invalid Updated since format, or not allowed to access this movement | DateTime, message, debugMessage |
 | 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter | N/A |
 | 403 | Unsuccessful | The requested movement's consignor ID or consignee ID is not in authorisation bearer token| N/A |
