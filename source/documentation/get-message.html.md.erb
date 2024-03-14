@@ -1,11 +1,11 @@
 ---
-title: Get all messages for an excise movement
+title: Get a specific message for an excise movement
 weight: 60
 ---
 
-# Get a message belonging to an excise movement
+# Get a message for an excise movement using the movement ID and message ID
 <%= partial 'documentation/partials/google_tag_manager_js' %>
-Use the GET endpoint [Get a messages for an excise movement using the movement ID and messageId](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getMessage) to get a message belonging to a specific excise movement.
+Use the GET endpoint [Get a messages for an excise movement using the movement ID and message ID](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/getMessage) to get a message belonging to a specific excise movement.
 
 ## Requirements
 
@@ -54,7 +54,7 @@ Full details of successful and unsuccessful responses and their schema can be fo
 | Response code | Status | Details | Contents |
 | -- | -- | -- | -- |
 | 200 | Successful | Successful operation | xml message format (for schema of each message see above)|
-| 400 | Unsuccessful | Invalid movement ID, invalid Updated since format, or not allowed to access this movement | DateTime, message, debugMessage |
+| 400 | Unsuccessful | Invalid movement ID | DateTime, message, debugMessage |
 | 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter | N/A |
 | 403 | Unsuccessful | The requested movement's consignor ID or consignee ID is not in authorisation bearer token| N/A |
 | 404 | Unsuccessful | Movement with supplied ID not found for this ERN | DateTime, message, debugMessage |
