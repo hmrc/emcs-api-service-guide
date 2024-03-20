@@ -51,11 +51,11 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents |
 | -- | -- | -- | -- |
-| 200 | Successful | Successful operation | xml message format (for schema of each message see above)|
-| 400 | Unsuccessful | Invalid movement ID | DateTime, message, debugMessage |
-| 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter | N/A |
-| 403 | Unsuccessful | The requested movement's consignor ID or consignee ID is not in authorisation bearer token| N/A |
-| 404 | Unsuccessful | Movement with supplied ID not found for this ERN | DateTime, message, debugMessage |
-| 404 | Unsuccessful | Message with supplied ID not found for this ERN | DateTime, message, debugMessage |
-| 406 | Unsuccessful | Accepted header is not acceptable | DateTime, message, debugMessage |
+| 200 | Successful | Successful operation | Xml message format (for schema of each message see above)|
+| 400 | Unsuccessful | Invalid movement ID | DateTime, message, debug message |
+| 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter | DateTime, message, debug message |
+| 403 | Unsuccessful | The requested movement's consignor ID or consignee ID is not in authorisation bearer token| DateTime, message, debug message |
+| 404 | Unsuccessful | Movement with supplied ID not found for this ERN | DateTime, message, debug message |
+| 404 | Unsuccessful | Message with supplied ID not found for this ERN | DateTime, message, debug message |
+| 406 | Unsuccessful | Accepted header is not acceptable | DateTime, message, debug message |
 

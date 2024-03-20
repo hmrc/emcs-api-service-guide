@@ -38,15 +38,15 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents |
 | -- | -- | -- | -- | -- |
-| 202 | Successful | Message accepted | N/A |
-| 400 | Unsuccessful | The submitted message has failed validation. | DateTime, message, debugMessage|
-| 401 | Unsuccessful | Consignor or consignee not authorised. Invalid enrolment parameter. | N/A |
-| 403 | Unsuccessful | Consignor ID or consignee ID in submitted message is not in authorisation bearer token. | N/A |
+| 202 | Successful | Message accepted | Movement ID, consignor ID, local reference number, consignee ID, administrative reference code |
+| 400 | Unsuccessful | The submitted message has failed validation. | DateTime, message, debug message|
+| 401 | Unsuccessful | Consignor or consignee not authorised. Invalid enrolment parameter. | DateTime, message, debug message |
+| 403 | Unsuccessful | Consignor ID or consignee ID in submitted message is not in authorisation bearer token. | DateTime, message, debug message |
 | 403 | Unsuccessful | Logged in ERN cannot send this message | DateTime, message, debug message |
-| 404 | Unsuccessful | Movement doesn't exist or cannot be accessed by supplied ERN. | DateTime, EMCS Correlation ID, message, debugMessage |
-| 422 | Unsuccessful | The message has failed validation. | EMCS Correlation Id, message, validatorResults |
-| 500 | Unsuccessful | Internal server error. | DateTime, EMCS Correlation ID, message, debugMessage |
-| 503 | Unsuccessful | Downstream service is unavailable. | DateTime, EMCS Correlation ID, message, debugMessage |
+| 404 | Unsuccessful | Movement doesn't exist or cannot be accessed by supplied ERN. | DateTime, EMCS Correlation ID, message, debug message |
+| 422 | Unsuccessful | The message has failed validation. | DateTime, message, debug message, EMCS Correlation Id, validatorResults |
+| 500 | Unsuccessful | Internal server error. | DateTime, EMCS Correlation ID, message, debug message |
+| 503 | Unsuccessful | Downstream service is unavailable. | DateTime, EMCS Correlation ID, message, debug message |
 
 ## Error codes
 
