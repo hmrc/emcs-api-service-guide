@@ -27,15 +27,15 @@ Full details of successful and unsuccessful responses and their schema can be fo
 <%= partial 'documentation/partials/google_tag_manager_js' %>
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 202 | Successful | Accepted | Movement Id, Box ID, consignor ID, local reference number, consignee ID, status|
-| 400 | Unsuccessful | The submission of draft movement message has failed validation | DateTime, EMCS correlation ID, message, debug message, status |
+| 202 | Successful | Accepted | Movement Id, Box ID, consignor ID, local reference number, consignee ID|
+| 400 | Unsuccessful | The submission of draft movement message has failed validation | DateTime, EMCS correlation ID, message, debug message |
 | 401 | Unsuccessful | Consignor not authorised. Invalid enrolment parameter | N/A |
 | 403 | Unsuccessful | Consignor ID is not in authorisation bearer token | N/A |
 | 403 | Unsuccessful | Logged in ERN cannot send this message | DateTime, message, debug message |
-| 404 | Unsuccessful | Connection refused | DateTime, EMCS correlation ID, message, debug message, status |
+| 404 | Unsuccessful | Connection refused | DateTime, EMCS correlation ID, message, debug message |
 | 422 | Unsuccessful | The draft message has failed validation | EMCS correlation ID, message, validationResults |
-| 500 | Unsuccessful | Internal server error | DateTime, EMCS correlation ID, message, debug message, status |
-| 503 | Unsuccessful | Downstream service is unavailable | DateTime, EMCS correlation ID, message, debug message, status |
+| 500 | Unsuccessful | Internal server error | DateTime, EMCS correlation ID, message, debug message |
+| 503 | Unsuccessful | Downstream service is unavailable | DateTime, EMCS correlation ID, message, debug message |
 
 ## Error codes
 
