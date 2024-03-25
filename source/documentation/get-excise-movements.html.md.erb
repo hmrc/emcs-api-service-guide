@@ -31,6 +31,6 @@ Full details of successful and unsuccessful responses and their schema can be fo
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
 | 200 | Successful | Successful operation. If there are no movements for any of your excise reference numbers (ERNs) in your bearer token or because of the filters, this will return an empty list. | Movement ID, consignor ID, local reference number, consignee ID, administrative reference code|
-| 400 | Unsuccessful | Bad request. Filter ERN is invalid or date filter format is invalid | DateTime, message, debugMessage |
-| 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter.| N/A |
-| 403 | Unsuccessful | ERN is not in authorisation bearer token. | N/A |
+| 400 | Unsuccessful | Bad request. Filter ERN is invalid or date filter format is invalid | DateTime, message, debug message |
+| 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter.| DateTime, message, debug message |
+| 403 | Unsuccessful | ERN is not in authorisation bearer token. | DateTime, message, debug message |

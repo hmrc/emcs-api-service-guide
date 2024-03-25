@@ -28,10 +28,10 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 200 | Successful | Validation performed successfully | validation timestamp, excise trader validation response including: ERN, entity group, valid trader, trader type, validate product authorisation response |
-| 200 | Successful | Validation performed with a business error (invalid trader, invalid product codes) | validation timestamp, excise trader validation response including: ERN, entity group, valid trader, error code, error text, trader type, validate product authorisation response |
-| 400 | Unsuccesful| Invalid JSON or mandatory fields missing | N/A
-| 500 | Unsuccessful | Internal server error | N/A |
+| 200 | Successful | Validation performed successfully | validation timestamp, ERN, entity group, valid trader, trader type, validate product authorisation response |
+| 200 | Successful | Validation performed with a business error (invalid trader, invalid product codes) | validation timestamp, ERN, entity group, valid trader, error code, error text, trader type, validate product authorisation response |
+| 400 | Unsuccesful| Invalid JSON or mandatory fields missing | DateTime, message, debug message |
+| 500 | Unsuccessful | Internal server error | DateTime, message, debug message |
 
 ### Trader types
 

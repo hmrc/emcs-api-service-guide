@@ -57,8 +57,8 @@ Full details of successful and unsuccessful responses and their schema can be fo
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
 | 200 | Successful | Successful operation | encodedMessage, createdOn, messageType, messageId |
-| 400 | Unsuccessful | Invalid movement ID, invalid Updated since format, or not allowed to access this movement | DateTime, message, debugMessage |
-| 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter | N/A |
-| 403 | Unsuccessful | The requested movement's consignor ID or consignee ID is not in authorisation bearer token| N/A |
-| 404 | Unsuccessful | Movement with supplied ID not found for this ERN | DateTime, message, debugMessage |
+| 400 | Unsuccessful | Invalid movement ID, invalid Updated since format, or not allowed to access this movement | DateTime, message, debug message |
+| 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter | DateTime, message, debug message |
+| 403 | Unsuccessful | The requested movement's consignor ID or consignee ID is not in authorisation bearer token| DateTime, message, debug message |
+| 404 | Unsuccessful | Movement with supplied ID not found for this ERN | DateTime, message, debug message |
 
