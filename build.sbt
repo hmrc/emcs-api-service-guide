@@ -2,7 +2,7 @@ import sbt.Keys._
 
 val appName = "emcs-api-service-guide"
 
-scalaVersion := "2.13.8"
+ThisBuild / scalaVersion := "2.13.12"
 
 ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.6.0"
 ThisBuild / semanticdbEnabled := true
