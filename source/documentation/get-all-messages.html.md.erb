@@ -24,6 +24,8 @@ The query parameter must be entered as listed below. It is optional.
 | Parameter | Type | Details |
 | -- | -- | -- |
 | updatedSince | String <date-time> (DateTime) | Filter excise movements modified after provided timestamp. This can be used to poll for new messages for the movement.<br></br><br></br> You can also poll on the [Get excise movements endpoint](get-excise-movements.html) which allows a more efficient way to poll as that can first give you a list of movements that have new messages, and then use this endpoint to retrieve the updated messages for those movements.|
+| traderType   | String ("consignor" or "consignee") | Filter messages for a trader type. This will filter messages for this movement for a `consignor` or `consignee` by matching any of the ERNs in the bearer token with the `consignor` or `consignee` of the movement respectively.
+
 
 ## Messages
 
