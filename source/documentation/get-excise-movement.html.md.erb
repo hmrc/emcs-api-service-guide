@@ -25,7 +25,7 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 200 | Successful | Successful operation. | Movement ID, consignor ID, local reference number, consignee ID, administrative reference code |
+| 200 | Successful | Successful operation. | Movement ID, consignor ID, local reference number, consignee ID, administrative reference code, last updated |
 | 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter.| DateTime, message, debug message |
 | 403 | Unsuccessful | ERN is not in authorisation bearer token. | DateTime, message, debug message |
 | 404 | Unsuccessful | Movement with supplied ID not found for this ERN | DateTime, message, debug message |

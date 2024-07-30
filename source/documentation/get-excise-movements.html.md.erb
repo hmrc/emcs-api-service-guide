@@ -22,7 +22,7 @@ Query parameters must be entered as listed below. They are all optional.
 | ern          | String                        | Filter excise movements by excise reference number (consignor ID/consignee ID). If you do not provide an excise reference number (ERN) as a query parameter, you will get a list for all ERNs in your bearer token. |
 | arc          | String                        | Filter excise movements by administrative reference code (ARC)|
 | lrn          | String                        | Filter excise movements by local reference number (LRN)|
-| updatedSince | String <date-time> (DateTime) | Filter excise movements modified after provided timestamp. This can be used to poll for any updated movements.<br></br><br></br> For each updated movement that is returned, you can then call the [Get all messages endpoint](get-all-messages.html) and pass in the same value for its "updatedSince" query parameter to get the messages that have been received since you last polled.|
+| updatedSince | String <date-time> (DateTime) | Filter excise movements modified after provided timestamp. This can be used to poll for any updated movements.<br></br><br></br> You may want to consider using the latest `lastUpdated` as the value to pass to `updatedSince`, the next time you poll as an optimisation.<br></br><br></br> For each updated movement that is returned, you can then call the [Get all messages endpoint](get-all-messages.html) and pass in the same value for its "updatedSince" query parameter to get the messages that have been received since you last polled.|
 | traderType   | String ("consignor" or "consignee") | Filter excise movements for a trader type. This will filter movements for a `consignor` or `consignee` by matching any of the ERNs in the bearer token with the `consignor` or `consignee` of the movement respectively.
 
 ## Responses 
@@ -31,6 +31,6 @@ Full details of successful and unsuccessful responses and their schema can be fo
 
 | Response code | Status | Details | Contents | 
 | -- | -- | -- | -- |
-| 200 | Successful | Successful operation. If there are no movements for any of your excise reference numbers (ERNs) in your bearer token or because of the filters, this will return an empty list. | Movement ID, consignor ID, local reference number, consignee ID, administrative reference code|
+| 200 | Successful | Successful operation. If there are no movements for any of your excise reference numbers (ERNs) in your bearer token or because of the filters, this will return an empty list. | Movement ID, consignor ID, local reference number, consignee ID, administrative reference code, last updated|
 | 400 | Unsuccessful | Bad request. Filter ERN is invalid or date filter format is invalid | DateTime, message, debug message |
 | 401 | Unsuccessful | Consignor or Consignee not authorised. Invalid enrolment parameter.| DateTime, message, debug message |
