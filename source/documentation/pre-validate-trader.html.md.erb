@@ -1,0 +1,45 @@
+---
+title: Excise Pre-Validation
+weight: 70
+---
+
+# Get trader information
+<%= partial 'documentation/partials/google_tag_manager_js' %>
+Use the POST endpoint [Get information relating to an excise trader](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Traders/operation/pre-validate-trader) to get information about an excise trader.
+
+## Request body schema
+
+Full details of the request body schema can be found in the [API reference](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/pre-validate-trader).
+
+The request body must include the Excise Id and authorisation request. Optionally, you can include the entity group and products list.
+
+### Entity groups
+
+The following entity groups are available:
+
+- UK Record
+- EU Record
+- UK Temporary Authorisation
+- EU Temporary Authorisation
+
+## Responses 
+
+Full details of successful and unsuccessful responses and their schema can be found in the [API reference](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Movements/operation/pre-validate-trader) on the HMRC Developer Hub.
+
+| Response code | Status | Details | Contents | 
+| -- | -- | -- | -- |
+| 200 | Successful   | Validation performed successfully                                                  | Processing date and time, Excise Id, Validation result  |
+| 200 | Successful   | Validation performed with a business error (invalid trader, invalid product codes) | Processing date and time, Excise Id, Validation result, fail details (valid trader, error code, error text and validate product authorisation response) |
+| 400 | Unsuccesful  | Invalid JSON or mandatory fields missing                                           | Processing date and time, message   |
+| 500 | Unsuccessful | Internal server error                                                              | Processing date and time, messages  |
+
+### Trader types
+
+The following error codes / error text are available:
+
+1. Pending
+2. Expired
+3. Withdrawn
+4. Cancelled
+5. Used
+6. Not found
