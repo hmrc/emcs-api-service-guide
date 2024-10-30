@@ -1,0 +1,35 @@
+---
+title: Subscribe an ERN to receive push/pull notifications
+weight: 50
+---
+
+# Subscribe an ERN to receive Push/Pull notifications
+<%= partial 'documentation/partials/google_tag_manager_js' %>
+This endpoint allows you to subscribe an ERN to receive push/pull notifications (PPN).
+
+Use the POST endpoint [Subscribe an ERN to receive Push/Pull notifications](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Subscribe/operation/subscribeErn) to subscribe an ERN to receive push/pull notifications.
+
+## Requirements
+
+The provided ERN must be present in the bearer token that you use for API authentication. If it is not, a 403 Forbidden error will be thrown.
+
+## Path parameters
+
+| Parameter | Type | Details |
+| -- | -- | -- |
+| ern | String | The ERN to be subscribed to PPN |
+
+## Responses
+
+Upon a successful post, this endpoint will return the BoxID that is now associated with that ERN for PPN.
+Full details of successful and unsuccessful responses and their schema can be found in the [API reference](/api-documentation/docs/api/service/excise-movement-control-system-api/1.0/oas/page#tag/Subscribe/operation/subscribeErn) on the HMRC Developer Hub.
+
+| Response code | Status | Details | Contents |
+| -- | -- | -- | -- | -- |
+| 202 | Successful | ERN accepted | BoxID |
+| 400 | Unsuccessful | Invalid JSON or mandatory fields missing | DateTime, message, debug message|
+| 401 | Unsuccessful | Consignor or consignee not authorised. Invalid enrolment parameter. | DateTime, message, debug message |
+| 403 | Unsuccessful | Consignor ID or consignee ID in submitted message is not in authorisation bearer token. | DateTime, message, debug message |
+| 403 | Unsuccessful | Logged in ERN cannot send this message | DateTime, message, debug message |
+| 500 | Unsuccessful | Internal server error. | DateTime, EMCS Correlation ID, message, debug message |
+| 503 | Unsuccessful | Downstream service is unavailable. | DateTime, EMCS Correlation ID, message, debug message |
