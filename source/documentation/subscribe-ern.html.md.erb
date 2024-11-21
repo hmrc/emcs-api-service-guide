@@ -33,3 +33,8 @@ Full details of successful and unsuccessful responses and their schema can be fo
 | 403 | Unsuccessful | Logged in ERN cannot send this message | DateTime, message, debug message |
 | 500 | Unsuccessful | Internal server error. | DateTime, EMCS Correlation ID, message, debug message |
 | 503 | Unsuccessful | Downstream service is unavailable. | DateTime, EMCS Correlation ID, message, debug message |
+
+## Notes
+
+- When you have already subscribed an ERN to receive Push/Pull notifications and the subscription has not expired, making the call again will return the same response: 202 (ERN accepted).
+- Each ERN will need to be subscribed, even in cases where they share a BoxID, in order to receive Push/Pull notifications.
