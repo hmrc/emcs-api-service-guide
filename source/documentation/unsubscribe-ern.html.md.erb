@@ -11,7 +11,7 @@ Use the POST endpoint [Unsubscribe an ERN to no longer receive Push/Pull notific
 
 ## Requirements
 
-The provided ERN must be present in the bearer token that you use for API authentication. If it is not, a 403 Forbidden error will be thrown.
+The user associated with the provided bearer token must have an enrolment that matches the ERN. If no matching enrolment is found, a 403 Forbidden error will be returned.
 
 ## Path parameters
 
