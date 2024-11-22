@@ -11,6 +11,7 @@ Use the POST endpoint [Unsubscribe an ERN to no longer receive Push/Pull notific
 
 ## Requirements
 
+The user associated with the provided bearer token must have an enrolment that matches the ERN. If no matching enrolment is found, a 403 Forbidden error will be returned.
 
 ## Path parameters
 
@@ -31,3 +32,5 @@ Full details of successful and unsuccessful responses and their schema can be fo
 | 403 | Unsuccessful | Logged in ERN cannot send this message | DateTime, message, debug message |
 | 500 | Unsuccessful | Internal server error. | DateTime, EMCS Correlation ID, message, debug message |
 | 503 | Unsuccessful | Downstream service is unavailable. | DateTime, EMCS Correlation ID, message, debug message |
+
+
